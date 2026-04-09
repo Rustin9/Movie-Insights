@@ -6,7 +6,7 @@ const fetch = require("node-fetch");
 const TMDB_API_KEY = process.env.TMDB_API_KEY;
 
 // Sample movies for POC
-const moviesList = ["Inception", "Interstellar", "The Dark Knight"];
+const moviesList = ["Project Hail Mary", "War Machine", "Avatar: Fire and Ash"];
 
 async function fetchMovie(title) {
   const searchRes = await fetch(
