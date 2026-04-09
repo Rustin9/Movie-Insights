@@ -1,7 +1,7 @@
 const { Storage } = require("@google-cloud/storage");
 
 const storage = new Storage({
-  keyFilename: "movie-insights-sa-key.json",
+  credentials: JSON.parse(process.env.GOOGLE_CREDENTIALS_JSON),
 });
 
 const bucketName = "ai-movie-insights-data";
