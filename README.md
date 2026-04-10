@@ -1,36 +1,154 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎬 AI Movie Insights
 
-## Getting Started
+An end-to-end AI-powered application that generates **accurate, structured movie insights** (plot hooks, themes, and trivia) for short-form content creators using curated data and LLM reasoning.
 
-First, run the development server:
+---
+## 🎯 Problem Statement
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Short-form video creators (YouTube Shorts, TikTok) spend **5–10 minutes researching** movie content manually.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This application reduces that time to **< 30 seconds** by generating:
+- Engaging **plot hooks**
+- Structured **themes**
+- Verified **trivia**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 👤 Target User
 
-## Learn More
+**Content Creators** (YouTube Shorts, TikTok)
 
-To learn more about Next.js, take a look at the following resources:
+### Job to be Done
+> Generate engaging, accurate, and structured movie content ideas instantly.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## ✅ Key Features
 
-## Deploy on Vercel
+- 🔍 Search movies by title  
+- 📊 View structured movie summary  
+- 🤖 Generate AI insights:
+  - Plot Hook (grounded in data)
+  - Theme Angles (with speculation control)
+  - Trivia Cards (verified facts)
+- 📋 Copy-ready content for creators  
+- 📡 Fully automated ETL pipeline  
+- ☁️ Cloud storage with GCP  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
+## 🏗️ System Architecture
+User (UI - Next.js)
+↓
+API Layer (/api/insights)
+↓
+GCS Bucket (Gold Data)
+↓
+ETL Pipeline (GitHub Actions)
+↓
+TMDB API (Raw Data Source)
+↓
+OpenAI (LLM Reasoning Layer)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🔄 Data Pipeline (ETL)
+
+### Flow:
+1. Fetch data from TMDB API  
+2. Normalize and structure data  
+3. Store as curated dataset (`movies.json`)  
+4. Upload to GCS bucket  
+5. App reads from curated data  
+
+---
+
+## 🗂️ Data Layers
+Bronze → Raw API data
+Silver → Cleaned data
+Gold → Curated dataset used by app
+---
+
+---
+
+## ⚙️ Tech Stack
+
+| Layer | Technology |
+|------|----------|
+| Frontend | Next.js |
+| Backend | Next.js API Routes |
+| AI Layer | OpenAI API |
+| Data Source | TMDB API |
+| Storage | GCP Cloud Storage |
+| ETL | GitHub Actions |
+| Deployment | Vercel |
+
+---
+## 🧪 Workflow (Required Skills Used)
+
+### 1. 🧠 grill-me
+- Validated idea and narrowed scope
+- Focused on **content creators use case**
+
+### 2. 📝 write-a-prd
+- Defined:
+  - Scope
+  - Architecture
+  - Output contract
+  - Evidence policy
+
+### 3. 📌 prd-to-issues
+Created structured development slices:
+
+- Slice 1: Search + Summary  
+- Slice 2: TMDB
+- Slice 3: Insights API + validation  
+- Slice 4: Trivia cards  
+- Slice 5: Themes + speculation labeling  
+- Slice 6: Creator notes  
+- Slice 7: Export/copy pack  
+- Slice 8: ETL pipeline + GCS  
+
+### 4. 🧪 tdd
+- Tests implemented for:
+  - API behavior
+  - Data validation
+  - Output structure
+
+### 5. 🏗️ improve-codebase-architecture
+- Refactored:
+  - API logic separation  
+  - Service layer abstraction  
+  - Data access via GCS  
+
+---
+
+## 🔁 GitHub Actions ETL Pipeline
+
+### Trigger:
+- On push to `main`
+- Manual run (workflow_dispatch)
+
+### Steps:
+1. Fetch movie data from TMDB  
+2. Transform and normalize  
+3. Save to `data/gold/movies.json`  
+4. Upload to GCS  
+
+---
+## ☁️ Deployment
+
+- Frontend + API → **Vercel**
+- Data → **GCP Cloud Storage**
+- ETL → **GitHub Actions**
+
+---
+## 🏁 Final Summary
+
+This project demonstrates a **complete AI application lifecycle**:
+
+- From raw data ingestion  
+- Through transformation and storage  
+- Into a structured AI-powered user interface  
+
+All while enforcing **strict data grounding and reliability constraints**.
+
