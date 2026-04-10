@@ -49,6 +49,12 @@ TMDB API (Raw Data Source)
 ↓
 OpenAI (LLM Reasoning Layer)
 
+
+---
+
+<img width="1536" height="1024" alt="sys_art" src="https://github.com/user-attachments/assets/d58e1c1a-a9b5-475a-b0dd-1cb0e165d305" />
+
+
 ---
 
 ## 🔄 Data Pipeline (ETL)
