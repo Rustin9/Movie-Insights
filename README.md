@@ -16,7 +16,7 @@ This application reduces that time to **< 30 seconds** by generating:
 
 ## 👤 Target User
 
-**Content Creators** (YouTube Shorts, TikTok)
+**Content Creators** (YouTube Shorts, TikTok).
 
 ### Job to be Done
 > Generate engaging, accurate, and structured movie content ideas instantly.
